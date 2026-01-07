@@ -1,0 +1,24 @@
+warning: unused import: `asm`
+ --> src\printk.rs:3:18
+  |
+3 | ...rch::{asm, globa...
+  |          ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `lilith-kernal` (lib) generated 1 warning (run `cargo fix --lib -p lilith-kernal` to apply 1 suggestion)
+   Compiling lilith-kernal v0.1.0 (D:\Lilith-Kernal)
+error[E0432]: unresolved import `lilith_kernal::printk::printk`
+ --> src\main.rs:4:5
+  |
+4 | use lilith_kernal::printk::printk;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `printk` in `printk`
+  |
+help: consider importing this module instead
+  |
+4 - use lilith_kernal::printk::printk;
+4 + use lilith_kernal::printk;
+  |
+
+For more information about this error, try `rustc --explain E0432`.
+error: could not compile `lilith-kernal` (bin "lilith-kernal") due to 1 previous error

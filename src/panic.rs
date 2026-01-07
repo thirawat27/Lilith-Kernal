@@ -1,8 +1,6 @@
 use crate::types::*;
 
-extern "C" {
-    fn printk(fmt: *const c_char, ...);
-}
+use crate::printk::printk;
 
 #[no_mangle]
 pub unsafe extern "C" fn panic(s: *const c_char) -> ! {

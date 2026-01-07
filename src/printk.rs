@@ -1,6 +1,6 @@
 use crate::types::*;
 use crate::vsprintf::{vsprintf, VaList};
-use core::arch::{asm, global_asm};
+use core::arch::global_asm;
 
 static mut PRINTK_BUF: [c_char; 1024] = [0; 1024];
 
@@ -40,6 +40,10 @@ unsafe fn console_write_char(c: u8) {
     }
 }
 
+
+extern "C" {
+    pub fn printk(fmt: *const c_char, ...) -> c_int;
+}
 
 // Trampoline to capture variadic arguments.
 // For MSVC/Intel syntax, do not use %.
